@@ -1,0 +1,385 @@
+/********** Template CSS **********/
+:root {
+    --primary: #EB1616;
+    --secondary: #39a1dc;
+    --light: #6C7293;
+    --dark: #212529;
+    --white: #ffffff;
+}
+body{
+    color: var(--dark);
+    font-size: 14px;
+    background-color: transparent;
+}
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.border-light{
+    border: 1px solid var(--light);
+}
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+    font-size: 14px;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+.table{
+    color: var(--dark);
+    min-width: 900px;
+}
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+.btn-secondary{
+    background-color: var(--secondary);
+    border: none;
+}
+.btn-secondary:hover{
+    box-shadow: none;
+}
+.btn-dark{
+    background-color: var(--dark);
+    border: none;
+}
+.form-check-input{
+    background-color: var(--white);
+    border: none;
+}
+.form-check-input:focus{
+    box-shadow: none;
+    border: none;
+}
+.form-check-input:checked{
+    background-color: var(--dark);
+}
+button, .btn-close:focus{
+    box-shadow: none;
+}
+.btn-check:checked+.btn-secondary:focus, .btn-check:active+.btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show>.btn-secondary.dropdown-toggle:focus{
+    box-shadow: none;
+}
+.btn-check:focus+.btn, .btn:focus{
+    box-shadow: none;
+}
+/*** Layout ***/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--secondary);
+    transition: 0.5s;
+    z-index: 999;
+}
+.bg-secondary{
+    background-color: var(--secondary) !important;
+}
+.text-secondary{
+    color: var(--secondary) !important;
+}
+.content {
+    margin-left: 250px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.form-control, .form-control:focus{
+    color: var(--dark);
+    background-color: var(--white);
+    box-shadow: none;
+}
+.form-control:focus{
+    border-color: var(--secondary);
+}
+.img-wrp-login img{
+    max-width: 100%;
+}
+.img-wrp-login{
+    width: 90px;
+}
+.login-wrp .form-control{
+    border: none;
+}
+.login-wrp a{
+    color: var(--white);
+}
+.login-wrp a:hover{
+    color: var(--dark);
+}
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -250px;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .img-wrp-mob img, .sidebar .img-wrp img{
+        max-width: 100%;
+    }
+    .img-wrp-mob, .sidebar .img-wrp{
+        width: 100px;
+    }
+    .sidebar {
+        margin-left: -250px;
+        z-index: 9999;
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: var(--white);
+    font-weight: 500;
+    border-left: 3px solid var(--secondary);
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: var(--secondary);
+    background: var(--white);
+    border-color: var(--dark);
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    color: var(--light);
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+    background: var(--dark);
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: var(--white);
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: var(--dark);
+}
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    /* width: 40px; */
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* background: var(--dark);
+    border-radius: 40px; */
+    font-size: 22px;
+    color: var(--white);
+}
+.btn-sm, .btn-group-sm>.btn{
+    font-size: 14px;
+}
+.content .navbar .dropdown-item {
+    color: var(--white);
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background: var(--dark);
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+.footer-section {
+    color: #e6e6e6;
+    font-size: 12px;
+    font-weight: 300;
+}
+.dropdown-menu{
+    font-size: 14px;
+}
+.credit a {
+    font-size: 0;
+}
+.view:hover {
+    color: var(--dark) !important;
+}
+.delete:hover {
+    color: var(--primary) !important;
+}
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
+
+
+/*** Date Picker ***/
+.bootstrap-datetimepicker-widget.bottom {
+    top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+    border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+    font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background: var(--primary);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+    border-bottom-color: var(--primary);
+}
+
+
+/*** Testimonial ***/
+.progress .progress-bar {
+    width: 0px;
+    transition: 2s;
+}
+
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid var(--primary);
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--dark);
+    border-color: var(--primary);
+}
